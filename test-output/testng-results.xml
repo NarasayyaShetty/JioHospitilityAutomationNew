@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="1" total="3" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-08-11T15:25:52 IST" name="Default suite" finished-at="2025-08-11T15:27:48 IST" duration-ms="116350">
+    <groups>
+    </groups>
+    <test started-at="2025-08-11T15:25:52 IST" name="Default test" finished-at="2025-08-11T15:27:48 IST" duration-ms="116350">
+      <class name="Test.JioHospitility">
+        <test-method signature="testcase01()[pri:1, instance:Test.JioHospitility@73eb439a]" started-at="2025-08-11T15:25:52 IST" name="testcase01" finished-at="2025-08-11T15:27:35 IST" duration-ms="103304" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testcase01 -->
+        <test-method signature="subProperty()[pri:3, instance:Test.JioHospitility@73eb439a]" started-at="2025-08-11T15:27:35 IST" name="subProperty" description="navigating to subProperty" finished-at="2025-08-11T15:27:48 IST" duration-ms="12981" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- subProperty -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Test.JioHospitility@73eb439a]" started-at="2025-08-11T15:27:48 IST" name="tearDown" finished-at="2025-08-11T15:27:48 IST" duration-ms="16" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Test.JioHospitility -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
