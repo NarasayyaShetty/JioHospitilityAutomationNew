@@ -1,6 +1,7 @@
 package Test.ProperTest;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
@@ -13,5 +14,12 @@ public class BaseTest {
     @BeforeTest(alwaysRun=true)
     public void config(String browserName){
         driver=getDriverInstance(browserName);
+
+    }
+
+
+    @AfterSuite(alwaysRun=true)
+    public void tearDown(){
+        driver.quit();
     }
 }

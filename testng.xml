@@ -4,7 +4,15 @@
     <test thread-count="5" name="Chrome browser Test">
         <parameter name="browserName" value="chrome"/>
         <classes>
-            <class  name="Test.ProperTest.JioHospitilityTest"/>
+            <class  name="Test.ProperTest.TestCase02">
+                <methods>
+                    <exclude name="test01"/>
+                    <exclude name="test02"/>
+                    <exclude name="test03"/>
+                    <include name="test04"/>
+
+                </methods>
+            </class>
         </classes>
     </test>
 

@@ -30,7 +30,7 @@ public class JioHospitilityTest extends BaseTest {
         //Priyanka Preprod » Priyanka For PREPROD
         //Priyanka IPL » Priyanka IPL Pune
         //Take the subproperty name from Choose Hotel Screen.
-        hp.selectSubProperty("Priyanka IPL Pune");
+        hp.selectSubProperty("narshayya shetti sub");
         hp.selectDropDown("Guest Dining","In Room Dining");
        // hp.selectMenuOption("Guest Dining");
        // hp.selectSubMenuOptions("In Room Dining");

@@ -60,14 +60,15 @@ public class HomePage {
     @FindBy(css="li#dropdown")
     private List<WebElement> dropDowns;
 
-    public void selectDropDown(String dropDownName,String subMenu){
+    public boolean selectDropDown(String dropDownName,String subMenu){
+        boolean flag=false;
         WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(5));
         try{
             for(WebElement dropdown:dropDowns){
                 if(dropdown.getText().trim().equalsIgnoreCase(dropDownName)){
                     dropdown.click();
                     wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[@id='dropdown']//a[text()='"+subMenu+"']"))).click();
-
+                    flag=true;
                 }
             }
 
@@ -75,6 +76,7 @@ public class HomePage {
             e.printStackTrace();
             System.out.println("Exception is occured during clicking the dropdown");
         }
+        return flag;
     }
 
     public void selectSubMenuOptions(String subMenuName){
