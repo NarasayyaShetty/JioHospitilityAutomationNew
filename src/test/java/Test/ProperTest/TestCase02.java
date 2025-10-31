@@ -3,13 +3,17 @@ package Test.ProperTest;
 import Pages.ContentSettings.ManageContentPage;
 import Pages.ContentSettings.MessageAuthority;
 import Pages.ContentSettings.NotificationPage;
+import Pages.GuestDining.OrderHistoryPage;
 import Pages.HomePage;
+import Pages.Questionaries.QuestionariesPage;
 import Pages.SignInPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.UUID;
+
+import static Utils.SeleniumUtils.*;
 
 public class TestCase02 extends BaseTest{
     //Content settings test, Manage content, Message Authority and Notification Test
@@ -20,15 +24,22 @@ public class TestCase02 extends BaseTest{
     MessageAuthority mp;
     ManageContentPage mcp;
     String subPropertyName="narshayya shetti sub";
+    OrderHistoryPage ohp;
+    QuestionariesPage qp;
+    String question;
+    String newQuestion;
 
     @BeforeClass(alwaysRun=true)
     public void setUp(){
+        driver.get("https://preprod.devices.cms.jio.com/jiohotels/users/sign_in");
         sp=new SignInPage(driver);
         hp=new HomePage(driver);
         np=new NotificationPage(driver);
         mp=new MessageAuthority(driver);
         mcp=new ManageContentPage(driver);
-        driver.get("https://preprod.devices.cms.jio.com/jiohotels/users/sign_in");
+        ohp=new OrderHistoryPage(driver);
+        qp=new QuestionariesPage(driver);
+
         sp.makelogin("narasayyashetty497@gmail.com","Test@321");
 
     }
@@ -82,6 +93,7 @@ public class TestCase02 extends BaseTest{
     @Test(description="validate bootup video formate, check getting error message on uploading invalid format", priority=4)
     public void test04(){
         boolean status;
+        tacksScreenShotes(driver);
         hp.refreshHomePage();
         hp.selectSubProperty(subPropertyName);
         status=hp.selectDropDown("Content Setting","Manage Content");
@@ -89,5 +101,34 @@ public class TestCase02 extends BaseTest{
         status=mcp.validateInvalidFormatUploade("D:\\AutoItFiles\\InvalidFormatChecking\\bootupVideoInvalidFormatUpload.exe","D:\\AutoItFiles\\bootUpVideoUpload.exe","D:\\AutoItFiles\\InvalidFormatChecking\\invalidFormatBackgroundInage.exe");
 
         Assert.assertTrue(status,"Invalid format validation is failed");
+    }
+
+    @Test(description="Order Hiostory test from guest dining")
+    public void test05(){
+        boolean status;
+        tacksScreenShotes(driver);
+        hp.refreshHomePage();
+        hp.selectSubProperty(subPropertyName);
+        status=hp.selectDropDown("Guest Dining","Order History");
+        tacksScreenShotes(driver);
+        ohp.selectOption("Accepted");
+        tacksScreenShotes(driver);
+    }
+    @Test(description="Questionaries page, adding questions")
+    public void test06(){
+        boolean status;
+        tacksScreenShotes(driver);
+        hp.refreshHomePage();
+        hp.selectSubProperty(subPropertyName);
+        status=hp.selectDropDown("Questionnaires","Questionnaires");
+        Assert.assertTrue(status,"select dropdown is failed");
+        tacksScreenShotes(driver);
+        question=String.format("Question_%s",UUID.randomUUID().toString());
+        status=qp.addQuestions(question);
+        Assert.assertTrue(status,"Failed to add questions");
+        tacksScreenShotes(driver);
+        newQuestion=String.format("Question_%s",UUID.randomUUID().toString());
+        qp.editQuestionaries(question,newQuestion);
+
     }
 }

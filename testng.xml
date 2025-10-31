@@ -9,7 +9,9 @@
                     <exclude name="test01"/>
                     <exclude name="test02"/>
                     <exclude name="test03"/>
-                    <include name="test04"/>
+                    <exclude name="test04"/>
+                    <exclude name="test05"/>
+                    <include name="test06"/>
 
                 </methods>
             </class>

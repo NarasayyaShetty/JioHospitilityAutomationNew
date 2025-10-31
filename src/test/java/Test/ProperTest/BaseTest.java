@@ -18,7 +18,7 @@ public class BaseTest {
     }
 
 
-    @AfterSuite(alwaysRun=true)
+  //  @AfterSuite(alwaysRun=true)
     public void tearDown(){
         driver.quit();
     }

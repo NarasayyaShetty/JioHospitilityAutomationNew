@@ -1,0 +1,10 @@
+Pages\ContentSettings\MessageAuthority.class
+Pages\GuestDining\InRoomDiningPage.class
+Pages\GuestDining\OrderHistoryPage.class
+Pages\SubProperty\SubProperty.class
+Pages\Questionaries\QuestionariesPage.class
+Pages\ContentSettings\NotificationPage.class
+Pages\ContentSettings\ManageContentPage.class
+Pages\HomePage.class
+Utils\SeleniumUtils.class
+Pages\SignInPage.class
